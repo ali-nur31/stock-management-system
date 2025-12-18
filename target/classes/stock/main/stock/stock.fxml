@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="564.0" prefWidth="800.0"
+            style="-fx-background-color: #e0f2fe;"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="stock.main.stock.controllers.StockController">
+
+    <children>
+
+        <Text fill="#1e293b" layoutX="33.0" layoutY="140.0" text="Add new product">
+            <font>
+                <Font name="Comic Sans MS" size="24.0" />
+            </font>
+        </Text>
+
+        <!-- Поля ввода продукта -->
+        <TextField fx:id="nameField"
+                   layoutX="23.0" layoutY="181.0"
+                   promptText="Product name"
+                   style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #94a3b8;
+                          -fx-background-color: rgba(255,255,255,0.9); -fx-padding: 8 12; -fx-focus-color: #3b82f6;
+                          -fx-font-family: 'Comic Sans MS'; -fx-font-size: 14px;" />
+
+        <TextField fx:id="skuField"
+                   layoutX="23.0" layoutY="226.0"
+                   promptText="SKU"
+                   style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #94a3b8;
+                          -fx-background-color: rgba(255,255,255,0.9); -fx-padding: 8 12; -fx-focus-color: #3b82f6;
+                          -fx-font-family: 'Comic Sans MS'; -fx-font-size: 14px;" />
+
+        <TextField fx:id="supplierField"
+                   layoutX="23.0" layoutY="274.0"
+                   promptText="Supplier"
+                   style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #94a3b8;
+                          -fx-background-color: rgba(255,255,255,0.9); -fx-padding: 8 12; -fx-focus-color: #3b82f6;
+                          -fx-font-family: 'Comic Sans MS'; -fx-font-size: 14px;" />
+
+        <TextField fx:id="quantityField"
+                   layoutX="23.0" layoutY="322.0"
+                   promptText="Quantity"
+                   style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #94a3b8;
+                          -fx-background-color: rgba(255,255,255,0.9); -fx-padding: 8 12; -fx-focus-color: #3b82f6;
+                          -fx-font-family: 'Comic Sans MS'; -fx-font-size: 14px;" />
+
+        <!-- Кнопка добавления -->
+        <Button layoutX="78.0" layoutY="375.0"
+                onAction="#addItem"
+                text="Add product"
+                style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-background-radius: 16;
+                       -fx-font-size: 16px; -fx-font-family: 'Comic Sans MS'; -fx-cursor: hand;
+                       -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25),4,0,0,2);" />
+
+        <!-- Таблица продуктов -->
+        <TableView fx:id="productsTable"
+                   layoutX="248.0" layoutY="83.0"
+                   prefHeight="398.0" prefWidth="505.0"
+                   style="-fx-background-color: rgba(255,255,255,0.95); -fx-border-radius: 12; -fx-background-radius: 12;
+                          -fx-table-cell-border-color: transparent; -fx-font-family: 'Comic Sans MS';
+                          -fx-font-size: 14px;">
+            <columns>
+                <TableColumn fx:id="colName" prefWidth="150" text="Name" />
+                <TableColumn fx:id="colSku" prefWidth="120" text="SKU" />
+                <TableColumn fx:id="colSupplier" prefWidth="120" text="Supplier" />
+                <TableColumn fx:id="colQuantity" prefWidth="100" text="Quantity" />
+            </columns>
+        </TableView>
+
+        <!-- Поиск и кнопки редактирования -->
+        <TextField fx:id="searchField"
+                   layoutX="248.0" layoutY="33.0"
+                   onKeyReleased="#searchProduct"
+                   prefHeight="36.0" prefWidth="200.0"
+                   promptText="Search..."
+                   style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #94a3b8;
+                          -fx-background-color: rgba(255,255,255,0.9); -fx-padding: 6 12; -fx-focus-color: #3b82f6;
+                          -fx-font-family: 'Comic Sans MS'; -fx-font-size: 14px;" />
+
+        <Button layoutX="624.0" layoutY="35.0"
+                onAction="#editProduct"
+                text="Edit"
+                style="-fx-background-color: #fbbf24; -fx-text-fill: white; -fx-background-radius: 16;
+                       -fx-font-size: 15px; -fx-font-family: 'Comic Sans MS'; -fx-cursor: hand;
+                       -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2),4,0,0,2);" />
+
+        <Button layoutX="686.0" layoutY="35.0"
+                onAction="#deleteProduct"
+                text="Delete"
+                style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-background-radius: 16;
+                       -fx-font-size: 15px; -fx-font-family: 'Comic Sans MS'; -fx-cursor: hand;
+                       -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2),4,0,0,2);" />
+
+    </children>
+
+</AnchorPane>
